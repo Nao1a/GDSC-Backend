@@ -1,5 +1,1 @@
-what i built here is a basic calculator that enables the user to perform basic arithmetic operations and also probability calculation like finding the factorial of a number or finding permutations and combination of
-set of objects as a feature. it uses the readline library to allow the user to input data and receive immediate results. this project uses a modular design meaning it organizes code into separate functions for each 
-operation, making the code easier to maintain, fix, extend and even reuse parts of the code in other projects. it also includes basic error handling to ensure that is communicates well with the user. the issues i 
-faced is me being a beginner in coding in javascript and not knowing how to handle bugs and errors. although it is a basic project that uses pretty close logic as pyhton(the programming language i know a little bit
-) the syntax took me a little bit of time to learn. i watched some youtube videos to learn the basic syntax of it and i think i got the end of it to let me make this project.
+
