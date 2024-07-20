@@ -1,0 +1,246 @@
+
+DOM Manipulation in JavaScript
+
+Introduction to the DOM
+- DOM (Document Object Model) is a representation of the HTML structure of a webpage.
+- The DOM is a tree of nodes where each node represents an HTML element.
+
+
+1. Accessing the DOM
+
+Accessing the DOM means selecting HTML elements from the webpage so that you can manipulate them using JavaScript. Here are some common methods to select elements:
+
+getElementById()
+
+- Use Case: When you need to select a single, unique element by its ID.
+- How to Use:
+  ```javascript
+  var element = document.getElementById('myId');
+  ```
+  - `document.getElementById('myId')` selects the element with the ID `myId`.
+
+getElementsByClassName()
+
+- Use Case: When you need to select multiple elements that share the same class name.
+- How to Use:
+  ```javascript
+  var elements = document.getElementsByClassName('myClass');
+  ```
+  - `document.getElementsByClassName('myClass')` returns a live HTMLCollection of elements with the class `myClass`.
+
+getElementsByTagName()
+
+- Use Case: When you need to select multiple elements of the same tag type (e.g., all <div> elements).
+- How to Use:
+  ```javascript
+  var elements = document.getElementsByTagName('div');
+  ```
+  - `document.getElementsByTagName('div')` returns a live HTMLCollection of all <div> elements.
+
+querySelector()
+
+- Use Case: When you need to select the first element that matches a CSS selector.
+- How to Use:
+  ```javascript
+  var element = document.querySelector('.myClass');
+  ```
+  - `document.querySelector('.myClass')` selects the first element with the class `myClass`.
+
+querySelectorAll()
+
+- Use Case: When you need to select all elements that match a CSS selector.
+- How to Use:
+  ```javascript
+  var elements = document.querySelectorAll('.myClass');
+  ```
+  - `document.querySelectorAll('.myClass')` returns a static NodeList of all elements with the class `myClass`.
+
+2. Manipulating DOM Elements
+
+Once you've selected elements, you can manipulate them by changing their content, attributes, styles, and more. Here are methods for changing content:
+
+innerHTML
+
+- Use Case: When you need to set or get the HTML content of an element.
+- How to Use:
+  ```javascript
+  var element = document.getElementById('mainHeading');
+  element.innerHTML = 'New <strong>HTML</strong> Content';
+  ```
+  - `element.innerHTML` sets or gets the HTML content of the element.
+
+textContent / innerText
+
+- Use Case: When you need to set or get the text content of an element.
+- How to Use:
+  ```javascript
+  var element = document.getElementById('mainHeading');
+  element.textContent = 'New Text Content';
+  ```
+  - `element.textContent` sets or gets the text content of the element.
+
+
+
+3. Changing Attributes:
+- setAttribute(): Sets the value of an attribute on an element.
+  - Use Case: When you need to dynamically change the value of an attribute on an element.
+  - How to Use:
+    ```javascript
+    var element = document.getElementById('mainHeading');
+    element.setAttribute('class', 'newClass');
+    ```
+    - `element.setAttribute('class', 'newClass')` sets the `class` attribute of the element to `newClass`.
+
+- getAttribute(): Gets the value of an attribute on an element.
+  - Use Case: When you need to retrieve the value of a specific attribute from an element.
+  - How to Use:
+    ```javascript
+    var element = document.getElementById('mainHeading');
+    var classValue = element.getAttribute('class');
+    console.log(classValue);
+    ```
+    - `element.getAttribute('class')` retrieves the value of the `class` attribute.
+
+- removeAttribute(): Removes an attribute from an element.
+  - Use Case: When you need to remove a specific attribute from an element.
+  - How to Use:
+    ```javascript
+    var element = document.getElementById('mainHeading');
+    element.removeAttribute('class');
+    ```
+    - `element.removeAttribute('class')` removes the `class` attribute from the element.
+
+
+
+4 Changing Styles:
+- Use the style property to directly set CSS styles.
+  - Use Case: When you need to dynamically change the inline styles of an element.
+  - How to Use:
+    ```javascript
+    var element = document.getElementById('mainHeading');
+    element.style.color = 'red';
+    ```
+    - `element.style.color = 'red'` sets the text color of the element to red.
+
+5.  Creating and Removing Elements
+
+Creating Elements:
+- createElement(): Creates a new element.
+  - Use Case: When you need to dynamically create new HTML elements.
+  - How to Use:
+    ```javascript
+    var newElement = document.createElement('div');
+    ```
+    - `document.createElement('div')` creates a new `<div>` element.
+
+- appendChild(): Adds a new child element to a parent.
+  - Use Case: When you need to add a newly created or existing element as a child to a parent element.
+  - How to Use:
+    ```javascript
+    var parent = document.getElementById('container');
+    var newElement = document.createElement('div');
+    parent.appendChild(newElement);
+    ```
+    - `parent.appendChild(newElement)` adds the new element as the last child of the parent element.
+
+- insertBefore(): Inserts a new element before an existing child.
+  - Use Case: When you need to insert a new element at a specific position within a parent element.
+  - How to Use:
+    ```javascript
+    var parent = document.getElementById('container');
+    var newElement = document.createElement('div');
+    var referenceElement = document.getElementById('mainHeading');
+    parent.insertBefore(newElement, referenceElement);
+    ```
+    - `parent.insertBefore(newElement, referenceElement)` inserts the new element before the reference element.
+
+Removing Elements:
+- removeChild(): Removes a child element from a parent.
+  - Use Case: When you need to remove a specific child element from its parent.
+  - How to Use:
+    ```javascript
+    var parent = document.getElementById('container');
+    var child = document.getElementById('mainHeading');
+    parent.removeChild(child);
+    ```
+    - `parent.removeChild(child)` removes the child element from the parent.
+
+- remove(): Removes the element itself.
+  - Use Case: When you need to remove the element itself from the DOM.
+  - How to Use:
+    ```javascript
+    var element = document.getElementById('mainHeading');
+    element.remove();
+    ```
+    - `element.remove()` removes the element from the DOM.
+
+5. Event Handling
+
+Events are actions or occurrences that happen in the browser (e.g., click, mouseover, keydown).
+
+Common events include:
+- click: Occurs when an element is clicked.
+  - Use Case: When you need to perform an action after a user clicks a button.
+  - Example:
+    ```javascript
+    var button = document.getElementById('clickButton');
+    button.addEventListener('click', function() {
+        alert('Button clicked!');
+    });
+    ```
+
+- mouseover: Occurs when the mouse pointer is moved onto an element.
+  - Use Case: When you need to highlight an element when the user hovers over it.
+  - Example:
+    ```javascript
+    var element = document.getElementById('hoverElement');
+    element.addEventListener('mouseover', function() {
+        element.style.backgroundColor = 'yellow';
+    });
+    ```
+
+- keydown: Occurs when a key is pressed on the keyboard.
+  - Use Case: When you need to capture user input as they type.
+  - Example:
+    ```javascript
+    var inputField = document.getElementById('inputField');
+    inputField.addEventListener('keydown', function(event) {
+        console.log('Key pressed:', event.key);
+    });
+    ```
+
+Adding Event Listeners:
+- addEventListener(): Attaches event handlers to elements without overwriting existing handlers.
+  - Use Case: When you need to add multiple event handlers to the same event on the same element.
+  - Example:
+    ```javascript
+    var button = document.getElementById('clickButton');
+    button.addEventListener('click', function() {
+        console.log('First handler');
+    });
+    button.addEventListener('click', function() {
+        console.log('Second handler');
+    });
+    ```
+
+- Inline event handlers (not recommended): Adding event attributes directly in the HTML.
+  - Use Case: Not recommended as it mixes HTML and JavaScript, making the code harder to maintain.
+  - Example:
+    ```html
+    <button onclick="alert('Button clicked!')">Click Me</button>
+    ```
+
+Event Object:
+- Provides information about the event and the element that triggered it.
+- Event properties like target can be used to access the element that triggered the event.
+  - Use Case: When you need to get details about the event or the element that initiated the event.
+  - Example:
+    ```javascript
+    var container = document.getElementById('container');
+    container.addEventListener('click', function(event) {
+        console.log('Event type:', event.type);
+        console.log('Triggered by element:', event.target);
+    });
+    ```
+    - `event.type` returns the type of event that was triggered.
+    - `event.target` returns the element that triggered the event.

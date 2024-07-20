@@ -12,3 +12,10 @@ function calculategcf(x, y) {
 }
 let result = calculategcf(num1, num2);
 console.log(result);
+function euclidgcf(num1, num2) {
+    if (num1 > num2){
+        let c = math.floor(num1/num2)
+        let r =  num1 % num2
+        for ()
+    }
+}

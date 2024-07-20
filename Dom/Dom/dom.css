@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.highlight {
+    background-color:yellow
+}
+
+.new-element {
+    color: red;
+    margin-top: 10px;
+}
