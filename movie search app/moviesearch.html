@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>movie search app</title>
+    <link rel="stylesheet"  href="moviesearch.css">
+</head>
+<body>
+<h2>movie search app</h2>
+<form id = "form" onsubmit="return false;">
+    <input id="input" type="text" placeholder="Type something"/>
+    <button id="button" onclick="searchMovies()">Search</button>
+    <h2 id="movieTitle"></h2>
+    <p id="movieReleaseDate"></p>
+    <p id="movieGenre"></p>
+    <img id="moviePoster" alt="Movie Poster">
+    <p id="moviePlot"></p>
+</form>
+</body>
+<script src="moviesearch.js"></script>
+</html>
