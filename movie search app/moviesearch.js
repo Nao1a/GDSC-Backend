@@ -1,28 +1,29 @@
-let input = document.getElementById("input");
-let moviedata = 'https://www.omdbapi.com/?i=tt3896198&apikey=212c8801'
+const movieSearchBox = document.getElementById("search-input");
 
-function searchMovies() {
-    fetch(moviedata)
-        .then(res => res.json())
-        .then(movie => {
-            try{
-                if (input.value == movie.Title) {
-                    document.getElementById('movieTitle').textContent = movie.Title;
-                    document.getElementById('movieReleaseDate').textContent = `Release Date: ${movie.Released}`;
-                    document.getElementById('movieGenre').textContent = `Genre: ${movie.Genre}`;
-                    document.getElementById('moviePoster').src = movie.Poster;
-                    document.getElementById('moviePoster').alt = `${movie.Title} Poster`;
-                    document.getElementById('moviePlot').textContent = movie.Plot;
-                }
-                else {
-                    document.getElementById('movieTitle').textContent = "no movie by that name";
-                    document.getElementById('movieReleaseDate').textContent = '';
-                    document.getElementById('movieGenre').textContent = '';
-                    document.getElementById('moviePoster').src = '';
-                    document.getElementById('moviePoster').alt = '';
-                    document.getElementById('moviePlot').textContent = '';
-                }
-            }
-            catch(err){console.log("there is a problem ")}
-        })
+async function loadMovies(searchterm) {
+    const URL = `https://omdbapi.com/?s=${searchterm}&page=1&apikey=212c8801`;
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    let name = data.Search[1].Title
+    if(data.Response == 'True') imd(name)
+
+}
+async function imd(x){
+    const URL = `https://omdbapi.com/?t=${x}&page=1&apikey=212c8801`;
+    const response = await fetch(URL);
+    const data = await response.json();
+    displayMovieList(data)
+}
+
+function displayMovieList(movie) {
+    document.getElementById('moviePoster').src = movie.Poster;
+    document.getElementById('moviePoster').style.display = 'block'
+    document.getElementById('movieTitle').innerHTML = movie.Title;
+    document.getElementById('movie-year').innerHTML = movie.Year;
+    document.getElementById('movie-genre').innerHTML = movie.Genre
+}
+function theClick() {
+    let searchTerm = (movieSearchBox.value)
+    loadMovies(searchTerm);
 }

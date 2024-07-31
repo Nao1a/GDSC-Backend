@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>movie search app</title>
-    <link rel="stylesheet"  href="moviesearch.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search App</title>
+    <link rel="stylesheet" href="moviesearch.css">
 </head>
 <body>
-<h2>movie search app</h2>
-<form id = "form" onsubmit="return false;">
-    <input id="input" type="text" placeholder="Type something"/>
-    <button id="button" onclick="searchMovies()">Search</button>
-    <h2 id="movieTitle"></h2>
-    <p id="movieReleaseDate"></p>
-    <p id="movieGenre"></p>
-    <img id="moviePoster" alt="Movie Poster">
-    <p id="moviePlot"></p>
-</form>
-</body>
+<div class="container">
+    <h1>Movie Search</h1>
+    <input type="text" id="search-input" placeholder="Enter movie title...">
+    <button id="search-button" onclick="theClick()">search</button>
+
+    <div id="loading-indicator" class="hidden">Loading...</div>
+    <img id="moviePoster" src="" alt="the poster" style="display: none"></img>
+    <h1 id="movieTitle" ></h1>
+    <h1 id="movie-year"></h1>
+    <h1 id="movie-genre"></h1>
+</div>
+</div>
+
 <script src="moviesearch.js"></script>
+</body>
 </html>
